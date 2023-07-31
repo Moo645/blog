@@ -1,0 +1,7 @@
+<%= render 'shared/navbar' %>
+<%= render 'shared/sidebar' %>
+<div class="column is-9">
+  <%= render 'shared/breadcrumb' %>
+  <%= render 'shared/notice' if notice %>
+  <%= yield %>
+</div>

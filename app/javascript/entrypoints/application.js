@@ -29,3 +29,4 @@ Turbo.start()
 
 import '../controllers'
 import '../scripts'
+import '../stylesheets'

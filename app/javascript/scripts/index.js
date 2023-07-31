@@ -1,3 +1,3 @@
-// import './shared'
+import './shared'
 // import './frontend'
 // import './backend'
