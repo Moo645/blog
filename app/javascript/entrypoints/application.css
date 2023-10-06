@@ -1,1 +1,17 @@
-@import "bulma/css/bulma.min.css"
+@import "bulma/css/bulma.min.css";
+.d-none {
+    display: none;
+}
+
+#modal {
+    position: absolute;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    word-break: break-word;
+    border-radius: 6px;
+    background: #bad5ff;
+  }

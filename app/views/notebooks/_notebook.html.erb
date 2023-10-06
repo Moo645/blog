@@ -1,0 +1,16 @@
+<ul id="<%= dom_id notebook %>" class="menu-list">
+  <ul>
+    <li>
+      <div class="tag">
+        <%= notebook.name %>
+        <%= link_to "編輯", edit_notebook_path(notebook), data: { turbo_frame: 'modal' }, class: 'button is-small is-warning' %>
+        <%= link_to "刪除", notebook_path(notebook), class: 'button is-small is-danger', data: {turbo_method: :delete} %>
+      </div>
+      <ul>
+        <% notebook.note_categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</ul>

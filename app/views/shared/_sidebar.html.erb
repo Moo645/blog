@@ -1,21 +1,23 @@
-<div class="container">
-  <div class="columns">
-    <div class="column is-3 ">
+
       <aside class="menu is-hidden-mobile">
         <p class="menu-label">
           Notebokes
         </p>
+        <%= link_to '新增筆記本', new_notebook_path, data: { turbo_frame: 'modal' }, class: 'button is-primary' %>
         <ul class="menu-list">
-          <li><a>(( Notebooks ))</a></li>
-          <li><a class="is-active">美食筆記本</a>
+
+          <% notebooks.each do |notebook| %>
             <ul>
-              <li><a>(( Note Categories ))</a></li>
-              <li><a>台灣小吃</a></li>
-              <li><a>日本料理</a></li>
-              <li><a>泰式料理</a></li>
+              <li><%= link_to notebook.name, nil %>
+                <ul>
+                  <% notebook.note_categories.each do |category| %>
+                  <li><%= link_to category.name, nil %></li>
+                  <% end %>
+                </ul>
+              </li>
             </ul>
-          </li>
-          <li><a>後端技術記本</a></li>
+          <% end %>
+
         </ul>
         <p class="menu-label">
           Tags
@@ -34,4 +36,5 @@
           <li><a>料理風格</a></li>
         </ul>
       </aside>
-    </div>
+    
+

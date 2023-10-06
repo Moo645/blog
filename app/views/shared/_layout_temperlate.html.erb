@@ -1,7 +1,14 @@
 <%= render 'shared/navbar' %>
-<%= render 'shared/sidebar' %>
-<div class="column is-9">
-  <%= render 'shared/breadcrumb' %>
-  <%= render 'shared/notice' if notice %>
-  <%= yield %>
+<div class="container">
+  <div class="columns">
+    <div class="column is-2">
+      <%= render 'shared/sidebar', notebooks: @list_of_notebooks %>
+    </div>
+    <div class="column is-10">
+      <%= render 'shared/breadcrumb' %>
+      <%= render 'shared/notice' if notice %>
+      <%= turbo_frame_tag "modal" %>
+      <%= yield %>
+    </div>
+  </div>
 </div>

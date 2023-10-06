@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-
     <%= vite_client_tag %>
     <%= vite_stylesheet_tag 'application' %>
     <%= vite_javascript_tag 'application' %>
@@ -20,9 +18,7 @@
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
-
   </head>
-
   <body>
     <%= render 'shared/layout_temperlate', yield: yield %>
   </body>
