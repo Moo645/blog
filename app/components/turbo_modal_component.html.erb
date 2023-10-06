@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { controller: "turbo-modal",
+                      action: "turbo:submit-end->turbo-modal#submitEndClose 
+                              click@window->turbo-modal#clickOutsideClose"
+  }, style: "padding: 30px;" do %>
+    <%#= render 'form', notebook: @notebook, title: '創建新筆記本', submit: '創建' %>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title"><%= @title %></p>
+      </header>
+      <%= content %>
+      <%= button_tag "Close", data: { action: "turbo-modal#closeModal" }, type: "button", class: 'button is-danger' %>
+  <% end %>
+<% end %>
