@@ -1,17 +1,17 @@
-  <%= form_with model: notebook, class: 'card-footer-item' do |f| %>
-    <div class="field-body">
-      <% if notebook.errors.any? %>
-        <div id="error_explanation" class="field">
-          <h2><%= pluralize(notebook.errors.count, "error") %> prohibited this notebook from being saved:</h2>
-          <ul>
-            <% notebook.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <%= f.text_field :name, class: 'field input is-primary is-small ' %>
-      <%= f.button submit, class: "button is-primary is-small" %>
-    </div>
-  <% end %>
-</div>
+<%= form_with model: notebook, class: 'card-footer-item' do |f| %>
+  <div class="field-body">
+    <% if notebook.errors.any? %>
+      <div id="error_explanation" class="field">
+        <h2><%= pluralize(notebook.errors.count, "error") %> prohibited this notebook from being saved:</h2>
+        <ul>
+          <% notebook.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :name, class: 'field input is-primary is-small ' %>
+    <%= f.button submit, class: "button is-primary is-small" %>
+  </div>
+<% end %>
+
