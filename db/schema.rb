@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_04_112437) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_081436) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_112437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["notebook_id"], name: "index_note_categories_on_notebook_id"
+  end
+
+  create_table "note_categories_notes", force: :cascade do |t|
+    t.bigint "note_category_id"
+    t.bigint "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_category_id"], name: "index_note_categories_notes_on_note_category_id"
+    t.index ["note_id"], name: "index_note_categories_notes_on_note_id"
   end
 
   create_table "notebooks", force: :cascade do |t|
@@ -36,4 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_112437) do
   end
 
   add_foreign_key "note_categories", "notebooks"
+  add_foreign_key "note_categories_notes", "note_categories"
+  add_foreign_key "note_categories_notes", "notes"
 end
