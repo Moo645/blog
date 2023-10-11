@@ -1,0 +1,6 @@
+<div class="column is-12">
+  <%= link_to '新增筆記目錄', new_note_category_path, data: { turbo_frame: 'modal' }, class: 'button is-primary' %><br/>
+  <div id="note_categories">
+    <%= render @note_categories %>
+  </div>
+</div>

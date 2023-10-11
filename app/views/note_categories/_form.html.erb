@@ -1,0 +1,22 @@
+<%= form_with model: note_category do |f| %>
+  <div class="field-body">
+    <% if note_category.errors.any? %>
+      <div id="error_explanation" class="field">
+        <h2><%= pluralize(note_category.errors.count, "error") %> prohibited this notebook from being saved:</h2>
+        <ul>
+          <% note_category.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <%= f.label :notebook_id, "選取筆記本" %>
+    <%= f.collection_select :notebook_id, notebooks, :id, :name, class: 'field input is-primary is-small ' %>
+
+    <%= f.label :name, "目錄名稱" %>
+    <%= f.text_field :name, class: 'field input is-primary is-small ' %>
+    <%= f.button submit, class: "button is-primary is-small" %>
+  </div>
+<% end %>
+

@@ -1,0 +1,3 @@
+<%= render TurboModalComponent.new(title: '創建新筆記目錄') do %>
+  <%= render 'form', note_category: @note_category, notebooks: @notebooks, submit: '創建' %>
+<% end %>

@@ -1,0 +1,5 @@
+<div id="<%= dom_id note_category %>" class="card">
+    <%= note_category.notebook.name %>: <%= note_category.name %>
+        <%= link_to "編輯", edit_note_category_path(note_category), data: { turbo_frame: 'modal' }, class: 'button is-small is-warning' %>
+        <%= link_to "刪除", note_category_path(note_category), class: 'button is-small is-danger', data: {turbo_method: :delete} %>
+</div>
