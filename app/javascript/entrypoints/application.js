@@ -27,6 +27,7 @@ Turbo.start()
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
 
+import '@fortawesome/fontawesome-free'
 import '../controllers'
 import '../scripts'
 import '../stylesheets'

@@ -1,7 +1,5 @@
 @import "bulma/css/bulma.min.css";
-.d-none {
-    display: none;
-}
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 #modal {
     position: absolute;
@@ -14,4 +12,4 @@
     word-break: break-word;
     border-radius: 6px;
     background: #bad5ff;
-  }
+}
