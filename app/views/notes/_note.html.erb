@@ -1,0 +1,9 @@
+<div></div>
+<div></div>
+<div id="<%= dom_id note %>" class="card">
+<div class="tag">目錄: <%= note.note_categories.map(&:name).join(', ') %></div>
+<h2 class="title"><%= link_to note.title, note_path(note.id) %></h2>
+<div class="content" ><%= note.content %></div>
+    <%= link_to "編輯", edit_note_path(note), class: 'button is-small is-warning' %>
+    <%= link_to "刪除", note_path(note), class: 'button is-small is-danger', data: {turbo_method: :delete} %>
+</div>
