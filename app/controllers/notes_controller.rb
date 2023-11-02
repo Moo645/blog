@@ -45,7 +45,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to notes_url, notice: "已刪除筆記: #{@note.title}"
+    redirect_to notes_url, status: :see_other, notice: "已刪除筆記: #{@note.title}"
   end
 
   private

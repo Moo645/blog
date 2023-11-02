@@ -36,7 +36,7 @@ class NotebooksController < ApplicationController
 
   def destroy
     @notebook.destroy
-    redirect_to notebooks_path, notice: "#{@notebook.name} 刪除成功！"
+    redirect_to notebooks_path, status: :see_other, notice: "#{@notebook.name} 刪除成功！"
   end
 
   private

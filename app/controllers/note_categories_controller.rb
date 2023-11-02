@@ -23,6 +23,10 @@ class NoteCategoriesController < ApplicationController
     end
   end
 
+  def show
+    @note_category = NoteCategory.includes(:notes).find(params[:id])
+  end
+
   def edit
     @notebooks = Notebook.all
   end
@@ -40,7 +44,7 @@ class NoteCategoriesController < ApplicationController
 
   def destroy
     @note_category.destroy
-    redirect_to note_categories_path, notice: "#{@note_category.name} 刪除成功！"
+    redirect_to note_categories_path, status: :see_other, notice: "#{@note_category.name} 刪除成功！"
   end
 
   private
