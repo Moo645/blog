@@ -1,40 +1,37 @@
-
-      <aside class="menu is-hidden-mobile">
-        <p class="menu-label">
-          Notebokes
-        </p>
-        <%= link_to '新增筆記本', new_notebook_path, data: { turbo_frame: 'modal' }, class: 'button is-primary' %>
-        <ul class="menu-list">
-
-          <% notebooks.each do |notebook| %>
-            <ul>
-              <li><%= link_to notebook.name, nil %>
-                <ul>
-                  <% notebook.note_categories.each do |category| %>
-                  <li><%= link_to category.name, nil %></li>
-                  <% end %>
-                </ul>
-              </li>
-            </ul>
-          <% end %>
-
-        </ul>
-        <p class="menu-label">
-          Tags
-        </p>
-        <ul class="menu-list">
-          <li><a>(( Tags Categories ))</a></li>
-          <li>
-            <a>地區</a>
-            <ul>
-              <li><a>台北市</a></li>
-              <li><a>新北市</a></li>
-              <li><a>台東市</a></li>
-              <li><a>(( Tags ))</a></li>
-            </ul>
-          </li>
-          <li><a>料理風格</a></li>
-        </ul>
-      </aside>
-    
-
+<aside class="menu is-hidden-mobile">
+  <p class="menu-label">
+    Notebokes
+  </p>
+  <%= link_to '新增筆記', new_note_path, class: 'button is-primary' %>
+  <ul class="menu-list">
+    <% notebooks.each do |notebook| %>
+      <ul>
+        <li><%= link_to notebook.name, nil %>
+          <ul>
+            <% notebook.note_categories.each do |category| %>
+              <li><%= link_to category.name + "(#{category.notes.size})", note_category_path(category) %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+  </ul>
+<%# 
+  <p class="menu-label">
+    Tags
+  </p>
+  <ul class="menu-list">
+    <li><a>(( Tags Categories ))</a></li>
+    <li>
+      <a>地區</a>
+      <ul>
+        <li><a>台北市</a></li>
+        <li><a>新北市</a></li>
+        <li><a>台東市</a></li>
+        <li><a>(( Tags ))</a></li>
+      </ul>
+    </li>
+    <li><a>料理風格</a></li>
+  </ul>
+   %>
+</aside>

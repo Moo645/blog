@@ -1,8 +1,7 @@
 <%= form_with model: note_category do |f| %>
-  <div class="field-body">
+  <div class="field">
     <% if note_category.errors.any? %>
       <div id="error_explanation" class="field">
-        <h2><%= pluralize(note_category.errors.count, "error") %> prohibited this notebook from being saved:</h2>
         <ul>
           <% note_category.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -10,13 +9,27 @@
         </ul>
       </div>
     <% end %>
-  
-    <%= f.label :notebook_id, "選取筆記本" %>
-    <%= f.collection_select :notebook_id, notebooks, :id, :name, class: 'field input is-primary is-small ' %>
-
-    <%= f.label :name, "目錄名稱" %>
-    <%= f.text_field :name, class: 'field input is-primary is-small ' %>
-    <%= f.button submit, class: "button is-primary is-small" %>
+</div>
+<div class="field">
+  <%= f.label :notebook_id, "選取筆記本", class: 'label' %>
+  <div class="control">
+    <div class="select is-primary">
+      <%= f.collection_select :notebook_id, notebooks, :id, :name, { selected: selected } %>
+    </div>
   </div>
-<% end %>
+</div>
 
+<div class="field">
+  <%= f.label :name, "目錄名稱", class: 'label' %>
+  <div class="control">
+    <%= f.text_field :name, class: 'input is-primary' %>
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <%= f.button submit, class: "button is-link" %>
+  </div>
+</div>
+
+<% end %>

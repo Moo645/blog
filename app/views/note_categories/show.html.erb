@@ -1,0 +1,16 @@
+<%#= link_to '回筆記列表' , notes_path, class: 'button is-warning' %>
+<div class="title">
+  <%= @note_category.name %>
+</div>
+<div class="">
+  <% @note_category.notes.each do |note| %>
+    <div class="card">
+      <div class="title">
+        <%= link_to note.title, note_path(note) %>
+      </div>
+      <div class="content">
+        <%= note.content %>
+      </div>
+    </div>
+  <% end %>
+</div>

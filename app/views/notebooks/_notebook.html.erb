@@ -1,14 +1,41 @@
 <ul id="<%= dom_id notebook %>" class="menu-list">
   <ul>
     <li>
-      <div class="tag">
-        <%= notebook.name %>
-        <%= link_to "編輯", edit_notebook_path(notebook), data: { turbo_frame: 'modal' }, class: 'button is-small is-warning' %>
-        <%= link_to "刪除", notebook_path(notebook), class: 'button is-small is-danger', data: {turbo_method: :delete} %>
+      <div class="field">
+        <span class="icon-text">
+          <%= link_to edit_notebook_path(notebook), data: { turbo_frame: 'modal' }, class: 'has-text-info' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+        </span>
+        <span class="icon-text title is-4">
+          <%= notebook.name %>
+        </span>
+        <span class="icon-text">
+          <%= link_to notebook_path(notebook), data: { turbo_method: :delete }, class: 'has-text-danger' do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </span>
       </div>
       <ul>
+        <li class="field tag">
+          <%= link_to "新增目錄", new_note_category_path, data: { turbo_frame: 'modal' }, class: 'button is-small is-primary' %>
+        </li>
         <% notebook.note_categories.each do |category| %>
-          <li><%= category.name %></li>
+          <li>
+            <span class="icon">
+              <%= link_to edit_note_category_path(category), data: { turbo_frame: 'modal' }, class: 'has-text-info' do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+            </span>
+            <span class="icon-text">
+              <%= category.name %>
+            </span>
+            <span class="icon">
+              <%= link_to note_category_path(category), data: { turbo_method: :delete }, class: 'has-text-danger' do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+            </span>
+          </li>
         <% end %>
       </ul>
     </li>
