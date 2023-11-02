@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div data: { controller: "turbo-modal--turbo-modal",
+                      action: @actions[:modal]
+  }, style: "padding: 5px;" do %>
+    <article class="message is-info">
+      <div class="message-header">
+        <%= @title %>
+        <%= button_tag "Close", data: { action: @actions[:button] }, type: "button", class: 'delete' %>
+      </div>
+      <div class="message-body">
+        <%= content %>
+      </div>
+    </article>
+  <% end %>
+<% end %>
