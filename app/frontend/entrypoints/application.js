@@ -28,6 +28,6 @@ Turbo.start()
 // import '~/index.css'
 
 import '@fortawesome/fontawesome-free'
-import '../controllers'
-import '../scripts'
-import '../stylesheets'
+import '~/controllers'
+import '~/scripts'
+import '~/stylesheets'
